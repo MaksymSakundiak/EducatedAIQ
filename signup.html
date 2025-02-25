@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EducatedAIQ - Sign In / Sign Up</title>
+  <link rel="stylesheet" href="css/signup.css">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Nunito&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <!-- AOS CSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <nav>
+      <div class="container">
+        <a href="#" class="logo">
+          <img src="assets/logo.png" alt="EducatedAIQ Logo">
+          <span>EducatedAIQ</span>
+        </a>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="#features">Features</a></li>
+          <li><a href="#about-us">About Us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Sign In / Sign Up Section -->
+  <section class="auth-section">
+    <div class="particles-background" id="particles-js"></div>
+    <div class="auth-container">
+        <!-- Toggle Between Sign In and Sign Up -->
+        <div class="auth-toggle">
+          <button id="signInToggle" class="active">Sign In</button>
+          <button id="signUpToggle">Sign Up</button>
+        </div>
+      
+        <!-- Sign In Form -->
+        <form id="signInForm" class="auth-form active">
+          <h2>Welcome Back!</h2>
+          <p>Sign in to continue your learning journey.</p>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email" required>
+          </div>
+          <div class="input-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+          </div>
+          <button type="submit" class="button primary">Sign In</button>
+          <p class="auth-link">Don't have an account? <a href="#" id="goToSignUp">Sign Up</a></p>
+        </form>
+        
+        <script>
+          document.getElementById('signInForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+        
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+        
+            const response = await fetch('http://localhost:5000/api/signin', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ email, password }),
+            });
+        
+            const data = await response.json();
+            if (response.ok) {
+              alert('Sign in successful!');
+              // Redirect to the dashboard
+            } else {
+              alert(data.message || 'Sign in failed');
+            }
+          });
+        </script>
+      
+        <!-- Sign Up Form -->
+        <form id="signUpForm" class="auth-form">
+          <h2>Join EducatedAIQ</h2>
+          <p>Create an account to start your personalized learning journey.</p>
+          <div class="input-group">
+            <label for="fullName">Full Name</label>
+            <input type="text" id="fullName" placeholder="Enter your full name" required>
+          </div>
+          <div class="input-group">
+            <label for="newEmail">Email</label>
+            <input type="email" id="newEmail" placeholder="Enter your email" required>
+          </div>
+          <div class="input-group">
+            <label for="newPassword">Password</label>
+            <input type="password" id="newPassword" placeholder="Create a password" required>
+          </div>
+          <div class="input-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" id="confirmPassword" placeholder="Confirm your password" required>
+          </div>
+          <button type="submit" class="button primary">Sign Up</button>
+          <p class="auth-link">Already have an account? <a href="#" id="goToSignIn">Sign In</a></p>
+        </form>
+        
+        <script>
+          document.getElementById('signUpForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+        
+            const fullName = document.getElementById('fullName').value;
+            const email = document.getElementById('newEmail').value;
+            const password = document.getElementById('newPassword').value;
+        
+            const response = await fetch('http://localhost:5000/api/signup', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ fullName, email, password }),
+            });
+        
+            const data = await response.json();
+            if (response.ok) {
+              alert('Sign up successful!');
+              // Redirect to the login page or dashboard
+            } else {
+              alert(data.message || 'Sign up failed');
+            }
+          });
+        </script>
+      </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="assets/logo.png" alt="EducatedAIQ Logo">
+          <p>Revolutionizing education with AI & Blockchain.</p>
+        </div>
+        <div class="footer-links">
+          <ul>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#how-it-works">How It Works</a></li>
+            <li><a href="#about-us">About Us</a></li>
+          </ul>
+        </div>
+        <div class="footer-social">
+          <div class="social-icons">
+            <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-github"></i></a>
+            <a href="#" class="social-icon"><i class="fab fa-discord"></i></a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 EducatedAIQ. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+  <script>
+    // Initialize Particles.js
+    particlesJS('particles-js', {
+      particles: {
+        number: { value: 80, density: { enable: true, value_area: 800 } },
+        color: { value: '#ffffff' },
+        shape: { type: 'circle', stroke: { width: 0, color: '#000000' } },
+        opacity: { value: 0.5, anim: { enable: false } },
+        size: { value: 3, random: true, anim: { enable: false } },
+        line_linked: { enable: true, distance: 150, color: '#ffffff', opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 6, direction: 'none' }
+      },
+      interactivity: {
+        events: {
+          onhover: { enable: true, mode: 'repulse' },
+          onclick: { enable: true, mode: 'push' }
+        }
+      },
+      retina_detect: true
+    });
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+
+    // Toggle Between Sign In and Sign Up Forms
+    const signInToggle = document.getElementById('signInToggle');
+    const signUpToggle = document.getElementById('signUpToggle');
+    const signInForm = document.getElementById('signInForm');
+    const signUpForm = document.getElementById('signUpForm');
+    const goToSignUp = document.getElementById('goToSignUp');
+    const goToSignIn = document.getElementById('goToSignIn');
+
+    signInToggle.addEventListener('click', () => {
+      signInForm.classList.add('active');
+      signUpForm.classList.remove('active');
+      signInToggle.classList.add('active');
+      signUpToggle.classList.remove('active');
+    });
+
+    signUpToggle.addEventListener('click', () => {
+      signUpForm.classList.add('active');
+      signInForm.classList.remove('active');
+      signUpToggle.classList.add('active');
+      signInToggle.classList.remove('active');
+    });
+
+    goToSignUp.addEventListener('click', (e) => {
+      e.preventDefault();
+      signUpToggle.click();
+    });
+
+    goToSignIn.addEventListener('click', (e) => {
+      e.preventDefault();
+      signInToggle.click();
+    });
+  </script>
+</body>
+</html>
