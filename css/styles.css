@@ -60,70 +60,183 @@ body, h1, h2, h3, p, ul {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
   }
   
-/* Header */
+/* Header Styling */
 header {
-    padding: 20px 0;
-    background: rgba(255, 255, 255, 0.1); /* Semi-transparent background */
-    backdrop-filter: blur(10px); /* Frosted glass effect */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  background-color: #ffffff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 15px 5%;
+}
+
+/* Logo styling */
+.logo {
+  display: flex;
+  align-items: center;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 1.4rem;
+  text-decoration: none;
+  color: #1a1a1a;
+}
+
+.logo img {
+  height: 40px;
+  margin-right: 10px;
+}
+
+/* Nav menu */
+.nav-menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  justify-content: flex-end;
+  flex: 1;
+}
+
+.nav-menu li a {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #1a1a1a;
+  text-decoration: none;
+  padding: 6px 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.nav-menu li a:hover {
+  background-color: #2196f3;
+  color: white;
+}
+
+/* Responsive (optional) */
+@media (max-width: 992px) {
+  .header-container {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  
-  header .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  .nav-menu {
+    justify-content: flex-start;
   }
-  
-  header .logo {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    text-decoration: none;
-    color: var(--primary-white);
-    font-size: 24px;
-    font-weight: bold;
-  }
-  
-  header .logo img {
-    height: 40px; /* Adjust logo size as needed */
-    width: auto;
-  }
-  
-  header ul {
-    list-style: none;
-    display: flex;
-    align-items: center;
-    gap: 20px;
-  }
-  
-  header ul li a {
-    color: var(--primary-white);
-    font-weight: 600;
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  
-  header ul li a:hover {
-    color: var(--accent-gold);
-  }
-  
-  header .button {
-    padding: 10px 20px;
-    background: var(--accent-gold);
-    color: var(--text-dark);
-    border-radius: 25px;
-    font-weight: 600;
-    transition: background 0.3s ease, transform 0.3s ease;
-  }
-  
-  header .button:hover {
-    background: var(--primary-green);
-    transform: translateY(-3px);
-  }
-  
+}
+
+/* Financial Plan Section */
+.financialplan {
+  background: linear-gradient(145deg, #e8f5e9, #f3e5f5);
+}
+
+.financialplan ul {
+  list-style: none;
+  padding-left: 0;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  text-align: left;
+}
+
+.financialplan ul li {
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  font-size: 1.05rem;
+  padding-left: 25px;
+  position: relative;
+}
+
+.financialplan ul li::before {
+  content: '💰';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-size: 1rem;
+}
+
+/* Financial Strategy Section */
+.financialstrategy {
+  background: linear-gradient(145deg, #fff8e1, #e3f2fd);
+}
+
+.financialstrategy ul {
+  list-style: none;
+  padding-left: 0;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  text-align: left;
+}
+
+.financialstrategy ul li {
+  padding: 10px 0;
+  font-size: 1.05rem;
+  padding-left: 25px;
+  position: relative;
+  border-bottom: 1px solid #ddd;
+}
+
+.financialstrategy ul li::before {
+  content: '📊';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-size: 1rem;
+}
+
+/* Key Milestones Section */
+.milestones {
+  background: linear-gradient(145deg, #fce4ec, #e8eaf6);
+}
+
+.milestones ul {
+  list-style: none;
+  padding-left: 0;
+  max-width: 800px;
+  margin: 0 auto 20px auto;
+  text-align: left;
+}
+
+.milestones ul li {
+  padding: 10px 0;
+  padding-left: 30px;
+  position: relative;
+  font-size: 1.05rem;
+  border-left: 4px solid #2196f3;
+  margin-bottom: 10px;
+  background-color: #ffffffc7;
+  border-radius: 4px;
+}
+
+.milestones ul li::before {
+  content: '📅';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  font-size: 1rem;
+}
+
+.section-image {
+  max-width: 800px;
+  margin: 30px auto;
+  text-align: center;
+}
+
+.section-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+
 /* Hero Section */
 .hero {
     position: relative;
@@ -224,6 +337,253 @@ header {
     border-radius: 20px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
   }
+
+
+/* Added sections */
+/* General section styles */
+.section {
+  padding: 80px 0;
+  background-color: #f9f9fb;
+  text-align: center;
+}
+
+.section:nth-of-type(even) {
+  background-color: #ffffff;
+}
+
+.section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.section p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Executive Summary */
+.executivesummary {
+  background: linear-gradient(145deg, #e0f7fa, #f1f8e9);
+}
+
+/* Market Analysis */
+.market {
+  background: linear-gradient(145deg, #e3f2fd, #fce4ec);
+}
+
+/* Competitive Advantage */
+.competitive ul {
+  list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.competitive ul li {
+  font-size: 1.1rem;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  padding-left: 25px;
+}
+
+.competitive ul li::before {
+  content: '✔';
+  color: #2196f3;
+  position: absolute;
+  left: 0;
+  top: 12px;
+}
+
+/* Target Audience */
+.target {
+  background: linear-gradient(145deg, #fff3e0, #ede7f6);
+}
+
+/* Technology Stack */
+.tech ul {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.tech ul li {
+  padding: 10px 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.tech ul li strong {
+  color: #0d47a1;
+}
+
+.section {
+  padding: 80px 0;
+  background-color: #f9f9fb;
+  text-align: center;
+}
+
+.section:nth-of-type(even) {
+  background-color: #ffffff;
+}
+
+.section h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.section p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+  line-height: 1.6;
+  max-width: 900px;
+  margin: 0 auto 20px;
+  padding: 0 20px;
+}
+
+.section ul {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.1rem;
+  color: #333;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: left;
+}
+
+.section ul li {
+  margin-bottom: 10px;
+}
+
+/* Executive Summary */
+.executivesummary {
+  background: linear-gradient(145deg, #e0f7fa, #f1f8e9);
+  padding: 80px 0;
+  text-align: center;
+}
+
+.executivesummary .container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.executivesummary h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 2.5rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+}
+
+.executivesummary p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.15rem;
+  color: #333;
+  line-height: 1.7;
+}
+
+/* Market Analysis */
+.market {
+  background: linear-gradient(145deg, #e3f2fd, #fce4ec);
+}
+
+/* Competitive Advantage */
+.competitive ul {
+  list-style: none;
+  padding: 0;
+  max-width: 700px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.competitive ul li {
+  font-size: 1.1rem;
+  padding: 12px 0;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  padding-left: 25px;
+}
+
+.competitive ul li::before {
+  content: '✔';
+  color: #2196f3;
+  position: absolute;
+  left: 0;
+  top: 12px;
+}
+
+/* Target Audience */
+.target {
+  background: linear-gradient(145deg, #fff3e0, #ede7f6);
+}
+
+/* Technology Stack */
+.tech ul {
+  list-style: none;
+  padding: 0;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.tech ul li {
+  padding: 10px 0;
+  font-size: 1.05rem;
+  line-height: 1.5;
+}
+
+.tech ul li strong {
+  color: #0d47a1;
+}
+
+/* New Sections Styling */
+.company {
+  background: linear-gradient(145deg, #f3e5f5, #e8f5e9);
+}
+
+.business {
+  background: linear-gradient(145deg, #fff9c4, #f1f8e9);
+}
+
+.product {
+  background: linear-gradient(145deg, #fce4ec, #e1f5fe);
+}
+
+.industry {
+  background: linear-gradient(145deg, #ede7f6, #e3f2fd);
+}
+
+.competition {
+  background: linear-gradient(145deg, #e0f2f1, #fff3e0);
+}
+
+.section strong {
+  color: #0d47a1;
+}
+
+
+
+
+
+
+
+
+
+
+
 /* Features Section */
 .features {
     padding: 120px 0;
